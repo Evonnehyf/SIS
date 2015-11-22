@@ -23,12 +23,12 @@ corrmat[5, ] = 0
 corrmat[5,5] = 1
 cholmat = chol(corrmat)
 x = matrix(rnorm(n*p, mean=0, sd=1), n, p)
-x = x\%*\%cholmat
+x = x%*%cholmat
 
 # gaussian response 
 set.seed(1)
 b = c(4,4,4,-6*sqrt(2),4/3)
-y=x[, 1:5]\%*\%b + rnorm(n)
+y=x[, 1:5]%*%b + rnorm(n)
 model11=SIS(x, y, family="gaussian", tune="bic")
 model12=SIS(x, y, family="gaussian", tune="bic", varISIS="aggr", seed=11)
 model11$ix
@@ -36,7 +36,7 @@ model12$ix
 
 # binary response 
 set.seed(2)
-feta = x[, 1:5]\%*\%b; fprob = exp(feta)/(1+exp(feta))
+feta = x[, 1:5]%*%b; fprob = exp(feta)/(1+exp(feta))
 y = rbinom(n, 1, fprob)
 model21=SIS(x, y, family="binomial", tune="bic")
 model22=SIS(x, y, family="binomial", tune="bic", varISIS="aggr", seed=21)
@@ -46,7 +46,7 @@ model22$ix
 # poisson response
 set.seed(3)
 b = c(0.6,0.6,0.6,-0.9*sqrt(2))
-myrates = exp(x[, 1:4]\%*\%b)
+myrates = exp(x[, 1:4]%*%b)
 y = rpois(n, myrates)
 model31=SIS(x, y, family="poisson", tune="bic", perm=TRUE, q=0.9, 
             greedy=TRUE, seed=31)
@@ -58,7 +58,7 @@ model32$ix
 # Cox model
 set.seed(4)
 b = c(4,4,4,-6*sqrt(2),4/3)
-myrates = exp(x[, 1:5]\%*\%b)
+myrates = exp(x[, 1:5]%*%b)
 Sur = rexp(n,myrates); CT = rexp(n,0.1)
 Z = pmin(Sur,CT); ind = as.numeric(Sur<=CT)
 y = Surv(Z,ind)
