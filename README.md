@@ -11,6 +11,7 @@ install.packages("/your_file_path/SIS_0.7-6.tar.gz", lib="/your_R_packages_libra
 A series of worked examples follow below. More documentation to come.
 
 ```
+library(SIS)
 set.seed(0)
 n = 400; p = 50; rho = 0.5
 corrmat = diag(rep(1-rho, p)) + matrix(rho, p, p)
