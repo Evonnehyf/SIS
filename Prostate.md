@@ -1,7 +1,7 @@
-# Iterative Sure Independence Screening Procedures on the Prostate Data
+# Iterative Sure Independence Screening Procedures on the Prostate Cancer Data
 
 ```
-# The following code reproduces the training and test error results for the Prostate data set (Singh et al. 2002)
+# The following code reproduces the training and test error results for the Prostate Cancer data set (Singh et al. 2002)
 # in Table 6 of our paper "SIS: An R Package for Sure Independence Screening in Ultrahigh Dimensional Statistical Models".
 
 # REPLICATION CODE TABLE 6
